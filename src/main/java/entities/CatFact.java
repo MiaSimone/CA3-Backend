@@ -25,10 +25,10 @@ public class CatFact {
     private String type;
     private String user;
     private String text;
-    private String version;
+    private int version;
     private String createdAt;
 
-    public CatFact(String id, String type, String user, String text, String version, String createdAt) {
+    public CatFact(String id, String type, String user, String text, int version, String createdAt) {
         this.id = id;
         this.type = type;
         this.user = user;
@@ -69,11 +69,11 @@ public class CatFact {
         this.text = text;
     }
 
-    public String getVersion() {
+    public int getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
+    public void setVersion(int version) {
         this.version = version;
     }
 
