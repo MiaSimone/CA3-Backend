@@ -1,29 +1,34 @@
 
 package dto;
 
-import entities.CatFact;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author miade
  */
-public class CatFactDTO {
+public class StandartDTO {
+    
+    private String time;
     
     private String id;
     private String text;
     private String createdAt;
-    
-    private List<CatFactDTO> catFactList;
-    
 
-    public CatFactDTO() {}
+    public StandartDTO(CatFactDTO factDTO, String time) {
+        this.time = time;
+        this.id = factDTO.getId();
+        this.text = factDTO.getText();
+        this.createdAt = factDTO.getCreatedAt();
+    }
 
-    public CatFactDTO(CatFact catFact) {
-        this.id = catFact.getId();
-        this.text = catFact.getText();
-        this.createdAt = catFact.getCreatedAt();
+    public StandartDTO() {
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getId() {
@@ -49,15 +54,9 @@ public class CatFactDTO {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-
-    public List<CatFactDTO> getCatFactList() {
-        return catFactList;
-    }
-
-    public void addCatFactToList(CatFactDTO catFact) {
-        this.catFactList.add(catFact);
-    }
-
+    
+    
+    
     
     
     
