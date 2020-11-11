@@ -36,6 +36,7 @@ before_script:
 - sudo apt-get update || true
 
 - echo "Installing MySQL 8..."
+install: travis_wait 30
 - sudo -E apt-get -y install mysql-server
 
 - sudo mysql -u root -e "CREATE User 'dev'@'localhost' IDENTIFIED BY 'ax2'; GRANT ALL PRIVILEGES ON *.* TO 'dev'@'localhost' WITH GRANT OPTION;"
