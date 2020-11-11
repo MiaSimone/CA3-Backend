@@ -12,6 +12,7 @@ public class StandartDTO {
     private String id;
     private String text;
     private String createdAt;
+    private String quote;
 
     public StandartDTO(CatFactDTO factDTO, String time) {
         this.time = time;
@@ -20,7 +21,21 @@ public class StandartDTO {
         this.createdAt = factDTO.getCreatedAt();
     }
 
+    public StandartDTO(String time, KanyeWestDTO kanyeDTO) {
+        this.time = time;
+        this.quote = kanyeDTO.getQuote();
+        
+    }
+
     public StandartDTO() {
+    }
+    
+    public String getQuote() {
+        return quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
     }
 
     public String getTime() {
