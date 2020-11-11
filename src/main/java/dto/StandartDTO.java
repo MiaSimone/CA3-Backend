@@ -21,7 +21,7 @@ public class StandartDTO {
         this.createdAt = factDTO.getCreatedAt();
     }
 
-    public StandartDTO(String time, KanyeWestDTO kanyeDTO) {
+    public StandartDTO(KanyeRestDTO kanyeDTO, String time) {
         this.time = time;
         this.quote = kanyeDTO.getQuote();
         

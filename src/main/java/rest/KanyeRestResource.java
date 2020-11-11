@@ -6,7 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import fetchers.KanyeWestFetcher;
+import fetchers.KanyeRestFetcher;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.ws.rs.core.Context;
@@ -18,7 +18,7 @@ import javax.ws.rs.core.UriInfo;
  */
 
 @Path("kanyewest")
-public class KanyeWestResource {
+public class KanyeRestResource {
 
     @Context
     private UriInfo context;
@@ -29,7 +29,7 @@ public class KanyeWestResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getKanyeWest() throws Exception {
-        String result = KanyeWestFetcher.responseFromExternalServerParrallel(es, GSON);
+        String result = KanyeRestFetcher.responseFromExternalServerParrallel(es, GSON);
         cachedResponse = result;
         return result; 
     }

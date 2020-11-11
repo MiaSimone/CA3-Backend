@@ -6,10 +6,10 @@ package dto;
  * @author Selina A.S.
  */
 
-public class KanyeWestDTO {
+public class KanyeRestDTO {
     private final String quote;
 
-    public KanyeWestDTO(String quote) {
+    public KanyeRestDTO(String quote) {
         this.quote = quote;
     }
     

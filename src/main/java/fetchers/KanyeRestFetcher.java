@@ -7,7 +7,7 @@ package fetchers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dto.KanyeWestDTO;
+import dto.KanyeRestDTO;
 import dto.StandartDTO;
 import java.io.IOException;
 import java.util.concurrent.Callable;
@@ -22,7 +22,7 @@ import utils.HttpUtils;
  */
 
 
-public class KanyeWestFetcher {
+public class KanyeRestFetcher {
   private static final String FACT_SERVER = "https://api.kanye.rest";
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     
@@ -30,26 +30,26 @@ public class KanyeWestFetcher {
   public static String responseFromExternalServerParrallel(ExecutorService threadPool, final Gson gson) throws Exception{
   long start = System.nanoTime();
         
-    Callable<KanyeWestDTO> factTask = new Callable<KanyeWestDTO>(){
+    Callable<KanyeRestDTO> factTask = new Callable<KanyeRestDTO>(){
                
     @Override
-    public KanyeWestDTO call() throws IOException {
-       String kanyeWestAPI = HttpUtils.fetchData(FACT_SERVER);
-       KanyeWestDTO kwDTO = GSON.fromJson(kanyeWestAPI, KanyeWestDTO.class);
+    public KanyeRestDTO call() throws IOException {
+       String kanyeRestAPI = HttpUtils.fetchData(FACT_SERVER);
+       KanyeRestDTO kwDTO = GSON.fromJson(kanyeRestAPI, KanyeRestDTO.class);
        return kwDTO;
         
             
     }
    };
     
-     Future<KanyeWestDTO> futureFact = threadPool.submit(factTask);
+     Future<KanyeRestDTO> futureFact = threadPool.submit(factTask);
         
-        KanyeWestDTO kanyeFact = futureFact.get(2, TimeUnit.SECONDS);
+        KanyeRestDTO kanyeFact = futureFact.get(2, TimeUnit.SECONDS);
         
         long end = System.nanoTime(); 
         String time = "Time Parallel: " + ((end-start)/1_000_000) + " ms.";
         
-        StandartDTO sDTO = new StandartDTO(time, kanyeFact);
+        StandartDTO sDTO = new StandartDTO(kanyeFact, time);
         
         String standartJSON = gson.toJson(sDTO);
           
