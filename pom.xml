@@ -4,7 +4,7 @@
 
     <groupId>dat.sem3</groupId>
     <!-- Change artifactID below to change what it will say in the URL. For example www.mydomain.com/devops-starter/api/demo -->
-    <artifactId>devops-starter</artifactId>
+    <artifactId>ca3backend</artifactId>
     <version>1.0.1</version>
     <packaging>war</packaging>
 
